@@ -27,7 +27,7 @@ app.post("/random/:id", (req, resp) => {
 
 app.get("/suggestions", (req, response) => {
   axios
-    .get(`http://localhost:3004/suggestions/${globalID}`)
+    .get(`http://18.216.95.88:3004/suggestions/${globalID}`)
     .then(res => {
       response.status(200).send(res.data);
     })
@@ -37,7 +37,7 @@ app.get("/suggestions", (req, response) => {
 app.get("/search/:keyword", (req, response) => {
   let { keyword } = req.params;
   axios
-    .get(`http://localhost:3001/search/${keyword}`)
+    .get(`http://107.23.168.202:3001/search/${keyword}`)
     .then(res => {
       response.status(200).send(res.data);
     })
@@ -46,14 +46,14 @@ app.get("/search/:keyword", (req, response) => {
 
 app.get("/reviews/", (req, res) => {
   axios
-    .get(`http://localhost:3003/reviews/${globalID}`)
+    .get(`http://18.191.191.154:3003/${globalID}`)
     .then(({ data }) => res.send(JSON.stringify(data)))
     .catch(err => res.send(err));
 });
 
 app.get("/reviews/stats", (req, res) => {
   axios
-    .get(`http://localhost:3003/reviews/${globalID}/stats`)
+    .get(`http://18.191.191.154:3003/${globalID}/stats`)
     .then(({ data }) => res.send(JSON.stringify(data)))
     .catch(err => res.send(err));
 });
